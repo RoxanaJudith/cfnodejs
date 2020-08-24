@@ -4,7 +4,7 @@ var http = require("http"),
 http.createServer(function(req, res){
     fs.readFile("./index.html", function(err, html){
         var html_string = html.toString();
-        var variables = html_string.match(/[^\{\}]+(?=\})/g); //almacena un array con todas las incidencias de expresion regular
+        var variables = html_string.match(/[^\{\}]+(?=\})/g); //almacena un array con todas las incidencias de expresion regular en index
         var nombre = "roxana";
         //variable['nombre']
         for(var i = variables.length - 1; i >= 0; i--){
