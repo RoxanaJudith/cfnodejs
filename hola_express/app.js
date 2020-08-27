@@ -2,7 +2,9 @@ var express = require("express");
 
 var app = express();
 
+app.set("view engine","pug");
+
 app.get("/",function(req, res){
-    res.send("Hola mundo");   //send manda respuesta y cierra conexion
+    res.render("index",{hello: "hola rox"});   //send manda respuesta y cierra conexion
 })
 app.listen(8080);
