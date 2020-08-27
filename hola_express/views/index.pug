@@ -2,5 +2,25 @@ html
     head
         title Mi primera pagina en express
     body
-        h1 hola mundo
-        h2!= hello
+        - var arreglo = [1,2,3,4,5];
+        - for( var i = arreglo.length - 1; i >= 0; i--)
+          p= arreglo[i]  
+          //!=para escapar
+          p Numero : #{arreglo[i] + 1}
+          if i>1
+            p. 
+             Hola haz click en #[a(href="google.com") este link] por favor
+
+        - var arreglo2 = [6,7,8,9];
+        each item in arreglo2  
+          p= item
+          case item
+            when 6
+              p El item es 6
+            when 7
+              p El item es 7
+            default
+              p El item no es ni 6 ni 7     
+        
+        
+        
