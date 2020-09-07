@@ -9,7 +9,7 @@ app.get("/",function(req, res){
 });
 
 app.get("/:nombre", function(req,res){
-    console.log(req.params.nombre);
+    //console.log(req.params.nombre);
     res.render("form",{nombre: req.params.nombre});
 });
 
