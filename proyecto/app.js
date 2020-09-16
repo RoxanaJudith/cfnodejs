@@ -1,22 +1,11 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var User = require("./models/user").User;
 var app = express();
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
 
-mongoose.connect("mongodb://localhost/fotos", { useNewUrlParser: true, useUnifiedTopology: true});
 
-var userSchemaJSON = {
-    email: String,
-    password: String
-};
 
-var user_schema = new Schema(userSchemaJSON);
-
-var User = mongoose.model("User", user_schema);  //establece conexion con bd
-
-//midominio.com/estatico/
-app.use("/estatico", express.static('public'));  //funcion static retorna midleware necesario que se monta en use que permite servir archivos staticos
+app.use("/public", express.static('public'));  //funcion static retorna midleware necesario que se monta en use que permite servir archivos staticos
 app.use(bodyParser.json()); //para peticiones formato application/json
 app.use(bodyParser.urlencoded({extended: true}));
 
